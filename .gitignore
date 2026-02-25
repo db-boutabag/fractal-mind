@@ -1,0 +1,6 @@
+.mcp.json
+*.secret
+*.key
+.env
+.DS_Store
+Meta/memory/

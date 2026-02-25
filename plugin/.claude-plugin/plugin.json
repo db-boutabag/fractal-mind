@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "name": "fractal-mind",
+  "version": "1.0.0",
+  "description": "Digital brain management via Obsidian vault — capture, organize, query, and maintain your second brain with Claude Code",
+  "author": {
+    "name": "fractal-mind contributors"
+  }
+}
