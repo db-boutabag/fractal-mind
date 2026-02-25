@@ -16,11 +16,16 @@ Shared/
 ├── Product/                # Features, specs, UX decisions
 ├── Marketing/              # Campaigns, outreach, content strategy
 ├── Engineering/            # Architecture, infrastructure, tech decisions
+├── Ops/                    # Operations, sprint plans, team cadence
 ├── Intel/                  # Competitive research, market landscape
-├── Meeting-Notes/          # Shared meeting notes
+├── Meeting-Notes/          # Meeting notes
+│   ├── Internal/           # Team syncs, standups, internal reviews
+│   └── External/           # Calls with partners, customers, vendors
 ├── Docs/                   # Ad-hoc shared documents
 └── Archive/                # Completed or shelved shared work
 ```
+
+**All work content lives here.** `Projects/` in your personal vault is reserved for personal non-work projects only. This eliminates redundancy between Projects/ domain subfolders and Shared/ domains.
 
 ---
 

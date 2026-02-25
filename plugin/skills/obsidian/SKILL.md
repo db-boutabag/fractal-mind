@@ -6,18 +6,12 @@ This skill enables structured interaction with your Obsidian vault as a digital 
 
 ## Vault Structure
 
-The fractal-mind architecture uses PARA (Projects, Areas, Resources, Archive) folders with domain organization:
+The fractal-mind architecture uses PARA (Projects, Areas, Resources, Archive) folders with a key routing rule: **all work/team content lives in Shared/, while Projects/ is reserved for personal non-work projects only.**
 
 ```
 YourVault/
 ├── Inbox/              # Zero-friction captures — process regularly
-├── Projects/           # Active work — organized by domain
-│   ├── Brand/
-│   ├── Strategy/
-│   ├── Product/
-│   ├── Marketing/
-│   ├── Meetings/
-│   └── Ops/
+├── Projects/           # Personal non-work projects only
 ├── Areas/              # Ongoing responsibilities
 │   ├── Work/
 │   ├── Growth/
@@ -27,15 +21,18 @@ YourVault/
 ├── Daily/              # Daily notes (YYYY-MM-DD.md)
 ├── Templates/          # Note templates
 ├── Meta/               # CLAUDE.md (vault constitution), TAGS.md (tag reference)
-├── Shared/             # Git-synced team folder (optional)
+├── Shared/             # All work content — git-synced team folder
 │   ├── CRM/
 │   ├── Brand/
 │   ├── Strategy/
 │   ├── Product/
 │   ├── Marketing/
 │   ├── Engineering/
+│   ├── Ops/
 │   ├── Intel/
 │   ├── Meeting-Notes/
+│   │   ├── Internal/   # Team syncs, standups, internal reviews
+│   │   └── External/   # Calls with partners, customers, vendors
 │   ├── Docs/
 │   └── Archive/
 └── .local-plugins/     # Claude Code plugin
@@ -64,6 +61,11 @@ User shares thoughts, ideas, brain dumps, or quick notes.
 4. Add wikilinks to related existing notes
 5. If clearly actionable, ask about creating external task (ClickUp or similar)
 6. Report what was created, where, what it links to
+
+**Routing Rule:**
+- Work/team content → route to the appropriate `Shared/` domain folder (Brand/, Strategy/, Product/, etc.)
+- Personal non-work content → `Projects/`
+- Unsure → `Inbox/` with `#status/to-process`
 
 **Rules:**
 - Bias toward action, speed over perfection
@@ -163,7 +165,7 @@ See `references/google-meet-integration.md` for full specification.
 
 **Phase 1 (Import):**
 1. Pull new meeting notes from configured Google Drive folder
-2. Save to `Shared/Meeting-Notes/` with `status: to-review`
+2. Save to `Shared/Meeting-Notes/Internal/` or `Shared/Meeting-Notes/External/` with `status: to-review`
 3. Store transcript in collapsed callout
 4. Update import state file
 
@@ -333,7 +335,7 @@ When the Obsidian MCP server is available:
 
 **Customization:**
 - Modify vault structure in CLAUDE.md
-- Add domain subfolders under Projects/
+- Add domain subfolders under Shared/
 - Define custom tags in TAGS.md
 - Extend templates in Templates/ folder
 - Add MCP connections for external tools

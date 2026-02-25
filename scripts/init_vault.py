@@ -26,11 +26,6 @@ def create_directory_structure(vault_path, create_shared=False):
     for folder in para_folders:
         (vault / folder).mkdir(exist_ok=True)
 
-    # Domain subfolders under Projects/
-    domain_folders = ["Brand", "Strategy", "Product", "Marketing", "Meetings", "Ops"]
-    for domain in domain_folders:
-        (vault / "Projects" / domain).mkdir(parents=True, exist_ok=True)
-
     # Daily, Templates, Meta
     (vault / "Daily").mkdir(exist_ok=True)
     (vault / "Templates").mkdir(exist_ok=True)
@@ -45,13 +40,16 @@ def create_directory_structure(vault_path, create_shared=False):
             "Product",
             "Marketing",
             "Engineering",
+            "Ops",
             "Intel",
-            "Meeting-Notes",
             "Docs",
             "Archive",
         ]
         for domain in shared_domains:
             (vault / "Shared" / domain).mkdir(parents=True, exist_ok=True)
+        # Meeting-Notes with Internal/External subfolders
+        (vault / "Shared" / "Meeting-Notes" / "Internal").mkdir(parents=True, exist_ok=True)
+        (vault / "Shared" / "Meeting-Notes" / "External").mkdir(parents=True, exist_ok=True)
 
     return vault
 
@@ -65,8 +63,8 @@ def write_claude_md(vault_path):
 
 ## Structure
 - PARA folders: Inbox/, Projects/, Areas/, Resources/, Archive/
-- Projects/ uses domain subfolders: Brand/, Strategy/, Product/, Marketing/, Meetings/, Ops/
-- Shared/ — Git-synced team folder (optional)
+- Projects/ is for personal non-work projects only
+- Shared/ — All work content, git-synced team folder (optional)
 - Daily notes in Daily/
 - Templates in Templates/
 - Meta files in Meta/

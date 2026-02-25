@@ -41,18 +41,12 @@ Obsidian solves the capture and search problem. **fractal-mind** adds the AI lay
 
 ### Folder Structure
 
-The vault uses **PARA** (Projects, Areas, Resources, Archive) with domain-based subfolders under Projects:
+The vault uses **PARA** (Projects, Areas, Resources, Archive) with a clear routing rule: **all work/team content lives in Shared/, while Projects/ is reserved for personal non-work projects only.**
 
 ```
 YourVault/
 ├── Inbox/              # Zero-friction captures (process regularly)
-├── Projects/           # Active work — organized by domain
-│   ├── Brand/
-│   ├── Strategy/
-│   ├── Product/
-│   ├── Marketing/
-│   ├── Meetings/
-│   └── Ops/
+├── Projects/           # Personal non-work projects only
 ├── Areas/              # Ongoing responsibilities (don't expire)
 │   ├── Work/
 │   ├── Growth/
@@ -62,15 +56,18 @@ YourVault/
 ├── Daily/              # Daily notes (YYYY-MM-DD.md)
 ├── Templates/          # Note templates
 ├── Meta/               # CLAUDE.md (constitution), TAGS.md (reference)
-├── Shared/             # Git-synced team folder (optional)
+├── Shared/             # All work content — git-synced team folder
 │   ├── CRM/
 │   ├── Brand/
 │   ├── Strategy/
 │   ├── Product/
 │   ├── Marketing/
 │   ├── Engineering/
+│   ├── Ops/
 │   ├── Intel/
 │   ├── Meeting-Notes/
+│   │   ├── Internal/
+│   │   └── External/
 │   ├── Docs/
 │   └── Archive/
 └── .local-plugins/     # Claude Code plugin
@@ -215,7 +212,7 @@ You tell Claude an idea, decision, or brain dump. It:
 Example: You say "I need to redesign the pricing page and I'm not sure whether to A/B test it first."
 
 Claude creates:
-- File: `Projects/Product/redesign-pricing-page.md`
+- File: `Shared/Product/redesign-pricing-page.md`
 - Frontmatter with type=project, status=active, tags=[#project/pricing, #type/decision]
 - Body with the decision question
 - Link to related notes about pricing strategy
@@ -288,8 +285,8 @@ The CRM is not a replacement for HubSpot or Salesforce. It's relationship intell
 The optional `Shared/` folder is a git-synced subdirectory within your vault. It enables team collaboration:
 
 - **CRM/** — Shared relationship intelligence
-- **Brand/**, **Strategy/**, **Product/**, etc. — Domain folders for shared team knowledge
-- **Meeting-Notes/** — Captured meeting notes (with auto-import from Google Meet)
+- **Brand/**, **Strategy/**, **Product/**, **Ops/**, etc. — Domain folders for all work content
+- **Meeting-Notes/** — Captured meeting notes with `Internal/` and `External/` subfolders
 - **Docs/** — Ad-hoc shared documents
 - **Archive/** — Completed shared items
 
@@ -303,17 +300,17 @@ Full setup instructions in `vault-template/Shared/TEAM-SETUP.md`.
 
 ### Add Your Own Domain Folders
 
-Edit `Meta/CLAUDE.md` and add domains under `Projects/`:
+Edit `Meta/CLAUDE.md` and add domains under `Shared/`:
 
 ```yaml
 ## Structure
-- Projects/ uses domain subfolders: Brand/, Strategy/, Product/, Marketing/, Meetings/, Ops/, **NewDomain/**
+- Shared/ domain subfolders: Brand/, Strategy/, Product/, Marketing/, Ops/, Engineering/, **NewDomain/**
 ```
 
 Then create the folder:
 
 ```bash
-mkdir /path/to/your/vault/Projects/NewDomain
+mkdir /path/to/your/vault/Shared/NewDomain
 ```
 
 Claude will recognize it automatically next time you use the plugin.

@@ -12,27 +12,27 @@ The vault is organized using the **PARA** system (Projects, Areas, Resources, Ar
 
 **Top-level folders:**
 - `Inbox/` — Zero-friction captures, to be processed
-- `Projects/` — Active work organized by domain
+- `Projects/` — Personal non-work projects only
 - `Areas/` — Ongoing responsibilities
 - `Resources/` — Reference material and knowledge base
 - `Archive/` — Completed or shelved items
 - `Daily/` — Daily notes and periodic reviews
 - `Templates/` — Note templates
 - `Meta/` — Vault constitution and settings (this file, TAGS.md)
-- `Shared/` — Git-synced team folder (optional)
+- `Shared/` — All work content — git-synced team folder
 
-**Projects/ domain subfolders:**
+**Routing rule:** All work/team content → `Shared/`. `Projects/` is reserved for personal non-work projects only.
+
+**Shared/ domain subfolders:**
+- `CRM/` — Shared relationship intelligence (People, Companies)
 - `Brand/` — Brand identity, guidelines, voice, strategy
 - `Strategy/` — Business plans, positioning, thesis
 - `Product/` — Features, specifications, UX, testing
 - `Marketing/` — Campaigns, outreach, content, user acquisition
-- `Meetings/` — Meeting notes and agendas
-- `Ops/` — Operations, infrastructure, processes
-
-**Shared/ domain subfolders** (if using shared vault):
-- `CRM/` — Shared relationship intelligence (People, Companies)
-- `Brand/`, `Strategy/`, `Product/`, `Marketing/`, `Engineering/`, `Intel/` — Shared domain work
-- `Meeting-Notes/` — Shared meeting notes
+- `Engineering/` — Architecture, infrastructure, tech decisions
+- `Ops/` — Operations, sprint plans, team cadence
+- `Intel/` — Competitive research, market landscape
+- `Meeting-Notes/` — Meeting notes (`Internal/` for team, `External/` for outside calls)
 - `Docs/` — Shared documents
 - `Archive/` — Completed shared work
 

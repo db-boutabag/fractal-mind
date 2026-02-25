@@ -67,7 +67,13 @@ Edit your vault's `Meta/CLAUDE.md` to customize for your vault:
 
 Also review `Meta/TAGS.md` and add any custom tags you want to use.
 
-## Step 4: (Optional) Set Up Obsidian REST API for MCP
+## Step 4: (Optional) Set Up External Connectors
+
+For full setup instructions on all external tool integrations (Obsidian REST API, ClickUp, Slack, Google Workspace, HubSpot), see `CONNECTORS.md` in the plugin root.
+
+The sections below cover the most common integrations inline.
+
+## Step 5: (Optional) Set Up Obsidian REST API for MCP
 
 The Obsidian REST API community plugin enables API-enhanced features like indexed search, live queries, and app integration.
 
@@ -117,7 +123,7 @@ Test in Claude Code:
 
 If the obsidian MCP server is available, you should get a fast, indexed response.
 
-## Step 5: (Optional) Set Up Google Workspace MCP for Meeting Import
+## Step 6: (Optional) Set Up Google Workspace MCP for Meeting Import
 
 The Google Workspace MCP enables pulling Google Meet auto-generated notes into your vault.
 
@@ -165,7 +171,7 @@ When you first run `/meeting-import`, you'll be prompted to complete the OAuth c
 
 Once complete, meeting notes will be imported automatically.
 
-## Step 6: (Optional) Set Up ClickUp MCP for Task Management
+## Step 7: (Optional) Set Up ClickUp MCP for Task Management
 
 For bidirectional syncing between vault notes and ClickUp tasks:
 
@@ -189,7 +195,7 @@ Generate a ClickUp API key in ClickUp Settings → Apps → API, then:
 export CLICKUP_API_KEY="your-key"
 ```
 
-## Step 7: (Optional) Set Up Slack MCP for Thread Capture
+## Step 8: (Optional) Set Up Slack MCP for Thread Capture
 
 For capturing Slack threads into vault notes:
 
@@ -215,7 +221,7 @@ export SLACK_BOT_TOKEN="xoxb-..."
 export SLACK_SIGNING_SECRET="your-secret"
 ```
 
-## Step 8: (Optional) Set Up Shared Vault for Team Collaboration
+## Step 9: (Optional) Set Up Shared Vault for Team Collaboration
 
 To enable git-synced team collaboration:
 
@@ -241,7 +247,7 @@ Configure auto-sync with `shared-vault-scripts/shared-sync.sh`:
 
 See `docs/shared-vault-architecture.md` for detailed team setup.
 
-## Step 9: (Optional) Enable Git Backup
+## Step 10: (Optional) Enable Git Backup
 
 Back up your personal vault to Git (exclude secrets):
 
@@ -283,7 +289,7 @@ git push
 
 Or use `shared-vault-scripts/shared-sync.sh` adapted for personal vault.
 
-## Step 10: Test Your Setup
+## Step 11: Test Your Setup
 
 1. Open Claude Code in your vault:
 ```bash
@@ -312,10 +318,10 @@ Should return indexed results if Obsidian MCP is available.
 
 ### Add Custom Domain Folders
 
-Edit your vault structure by updating `CLAUDE.md` and creating new domains under `Projects/`:
+Edit your vault structure by updating `CLAUDE.md` and creating new domains under `Shared/`:
 
 ```bash
-mkdir -p ~/Obsidian/Vault/Projects/custom-domain
+mkdir -p ~/Obsidian/Vault/Shared/custom-domain
 ```
 
 Then update CLAUDE.md to reflect the new structure.

@@ -137,8 +137,11 @@ Shared/
 ├── Product/
 ├── Marketing/
 ├── Engineering/
+├── Ops/
 ├── Intel/
 ├── Meeting-Notes/
+│   ├── Internal/
+│   └── External/
 ├── Docs/
 └── Archive/
 ```
@@ -157,10 +160,10 @@ Shared/
 
 ### Why Flat Wins for Teams
 
-**1. Shared content is reference, not active work**
-- PARA (Projects/Areas/Resources/Archive) works for individual workflows
-- Shared content is mostly **reference**: decisions made, research done, people met
-- These don't fit naturally into "active work" categories
+**1. Shared content is the single source of truth for work**
+- PARA (Projects/Areas/Resources/Archive) works for individual, non-work workflows
+- All work/team content lives in Shared/ — eliminating redundancy between Projects/ domain subfolders and Shared/ domains
+- Projects/ is reserved for personal non-work projects only
 
 **2. Domain clarity**
 - Domain folders (Brand/, Product/, etc.) make it obvious which team owns each section
@@ -321,13 +324,13 @@ Attendees: Alex Rivera, Jamie Park, Sam Torres
 Personal and shared vaults in one graph:
 
 ```
-Projects/Brand/messaging.md
+Shared/Brand/messaging.md
   ↓ links to
 Shared/Brand/brand-guidelines.md
   ↓ links to
 Shared/CRM/alex-rivera.md (external advisor)
   ↓ linked from
-Projects/Strategy/Q1-planning.md
+Shared/Strategy/Q1-planning.md
   ↓ also links to
 Shared/Strategy/market-positioning.md
 ```
@@ -347,7 +350,7 @@ In a two-vault setup, Alex's profile would be isolated in the shared vault, with
 - **Archive regularly:** Move old shared content to Archive/ annually
 
 ### DON'T
-- **Use Shared/ for personal drafts:** Keep drafts in personal Projects/
+- **Use Shared/ for personal non-work content:** Keep personal projects in Projects/
 - **Mix PARA in Shared/:** Keep domains flat at root level
 - **Commit large binaries:** Git + markdown works great; files + PDFs do not
 - **Skip the README:** Document Shared/ structure and boundaries clearly

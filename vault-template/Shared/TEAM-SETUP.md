@@ -256,11 +256,32 @@ Competitive research, market landscape, industry trends.
 - Trend analysis
 - Industry news summaries
 
+### Ops/
+
+Operations, sprint plans, team cadence, processes.
+
+**Typical files:**
+- Sprint plans and retrospectives
+- Team cadence documents
+- Operational playbooks
+- Process documentation
+- Resource allocation
+
 ### Meeting-Notes/
 
-Shared meeting notes. Used for all-hands, leadership, cross-functional meetings.
+Shared meeting notes, organized by audience:
+
+```
+Meeting-Notes/
+├── Internal/    # Team syncs, standups, internal reviews
+└── External/    # Calls with partners, customers, vendors
+```
 
 **Naming:** `YYYY-MM-DD-topic.md`
+
+**Routing rule:**
+- Internal team meetings → `Internal/`
+- Calls with anyone outside the team → `External/`
 
 **Frontmatter:**
 ```yaml

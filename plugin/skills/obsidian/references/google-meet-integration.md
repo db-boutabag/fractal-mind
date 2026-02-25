@@ -87,19 +87,25 @@ Automatically pull new meeting notes from Google Drive and save to vault.
    - Extract attendees if mentioned in header
    - Look for agenda items, action items, notes
 
-   d. **Create Vault Note**
+   d. **Determine Meeting Type**
+   - Analyze attendees: are all participants internal team members?
+   - **Internal meeting** (all attendees are team members) → save to `Shared/Meeting-Notes/Internal/`
+   - **External meeting** (any non-team attendee) → save to `Shared/Meeting-Notes/External/`
+   - If unsure → default to `External/` (safer assumption)
+
+   e. **Create Vault Note**
    - Generate filename: `YYYY-MM-DD-meeting-title.md`
    - Write frontmatter with metadata (see schema below)
    - Structure content: Summary, Notes, Attendees, Action Items, Transcript (collapsed)
    - Add source link to original Google Doc
    - Preserve all original content
 
-   e. **Store Transcript**
+   f. **Store Transcript**
    - Extract full transcript if present
    - Store in collapsed callout: `> [!transcript]- Full Transcript`
    - Preserves for later review without cluttering note
 
-   f. **Update State File**
+   g. **Update State File**
    - Add document ID to imported list with timestamp
    - Mark as `"processed": false`
    - Save updated state file
@@ -318,13 +324,13 @@ State tracking prevents duplicate imports and tracks processing progress.
   "imported": {
     "1ABC123XYZ": {
       "imported_at": "2024-02-25T14:32:10Z",
-      "vault_path": "Shared/Meeting-Notes/2024-02-25-project-alpha-review.md",
+      "vault_path": "Shared/Meeting-Notes/Internal/2024-02-25-project-alpha-review.md",
       "processed": false,
       "title": "Project Alpha Review"
     },
     "2DEF456UVW": {
       "imported_at": "2024-02-25T15:45:22Z",
-      "vault_path": "Shared/Meeting-Notes/2024-02-25-budget-planning.md",
+      "vault_path": "Shared/Meeting-Notes/External/2024-02-25-budget-planning.md",
       "processed": true,
       "title": "Budget Planning"
     }
@@ -490,19 +496,19 @@ Running Phase 1: Import
 Found 3 new meeting notes in Drive folder
 
 Importing: Project Alpha Review
-  → Saved to: Shared/Meeting-Notes/2024-02-25-project-alpha-review.md
+  → Saved to: Shared/Meeting-Notes/Internal/2024-02-25-project-alpha-review.md
   → Status: to-review
   → Attendees: 3 people
   → Has transcript
 
 Importing: Budget Planning Meeting
-  → Saved to: Shared/Meeting-Notes/2024-02-25-budget-planning.md
+  → Saved to: Shared/Meeting-Notes/External/2024-02-25-budget-planning.md
   → Status: to-review
   → Attendees: 2 people
   → Has transcript
 
 Importing: Weekly Standup
-  → Saved to: Shared/Meeting-Notes/2024-02-25-weekly-standup.md
+  → Saved to: Shared/Meeting-Notes/Internal/2024-02-25-weekly-standup.md
   → Status: to-review
   → Attendees: 5 people
   → Has transcript
@@ -558,8 +564,10 @@ Note status updated to "active"
 
 ## Integration with Shared Vault
 
-For team collaboration, import notes to `Shared/Meeting-Notes/`:
+For team collaboration, import notes to `Shared/Meeting-Notes/Internal/` or `Shared/Meeting-Notes/External/`:
 
+- Internal meetings (all team members) → `Internal/`
+- External meetings (any outside participant) → `External/`
 - All imported notes have `added-by: auto-import`
 - Team members can review and edit imported notes
 - Git history tracks who updated what
